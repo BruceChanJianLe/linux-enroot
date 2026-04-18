@@ -31,4 +31,56 @@ docker login nvcr.io
 enroot import docker://'$oauthtoken':${NGC_API_KEY}@nvcr.io#nvidia/cuda:12.9.0-cudnn-runtime-ubuntu24.04
 ```
 
-## Building Container Images
+## Creating Enroot Container Images
+> Maybe the title is not the most accurate, but you based do based off a docker container
+> To create your enroot "image", which then start upon it!
+
+1. If you have docker, use it to build an image, otherwise, I will have to say good-the-luck!
+2. Once built, we need to create the enroot image
+   ```bash
+   enroot create --name u24 cuda:12.9.0-cudnn-runtime-ubuntu24.04.sqsh
+   ```
+
+## Removing Enroot Container Images
+
+```bash
+enroot remove u24
+```
+
+## Starting Container!
+
+```bash
+enroot start \
+    --rw \
+    --mount /tmp/.X11-unix:/tmp/.X11-unix \
+    --mount /dev:/dev \
+    --mount /mnt:/mnt \
+    --mount /media:/media \
+    --mount /tier1/jianle/docker_mount:/home/developer/docker_mount \
+    --mount ${XDG_RUNTIME_DIR}/${WAYLAND_DISPLAY}:/tmp/${WAYLAND_DISPLAY} \
+    --env DISPLAY=${DISPLAY} \
+    --env QT_X11_NO_MITSHM=1 \
+    --env XAUTHORITY=${XAUTH} \
+    --env WAYLAND_DISPLAY=/tmp/${WAYLAND_DISPLAY} \
+    --env HOME=/home/developer \
+    u24
+```
+
+For the zsh users out there!
+
+```bash
+enroot start \
+    --rw \
+    --mount /tmp/.X11-unix:/tmp/.X11-unix \
+    --mount /dev:/dev \
+    --mount /mnt:/mnt \
+    --mount /media:/media \
+    --mount /tier1/jianle/docker_mount:/home/developer/docker_mount \
+    --mount ${XDG_RUNTIME_DIR}/${WAYLAND_DISPLAY}:/tmp/${WAYLAND_DISPLAY} \
+    --env DISPLAY=${DISPLAY} \
+    --env QT_X11_NO_MITSHM=1 \
+    --env XAUTHORITY=${XAUTH} \
+    --env WAYLAND_DISPLAY=/tmp/${WAYLAND_DISPLAY} \
+    --env HOME=/home/developer \
+    u24 zsh
+```
