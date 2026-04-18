@@ -24,3 +24,11 @@ docker login nvcr.io
 # Username: $oauthtoken
 # Password: <Your Key>
 ```
+
+6. Try pulling an image
+
+```bash
+enroot import docker://'$oauthtoken':${NGC_API_KEY}@nvcr.io#nvidia/cuda:12.9.0-cudnn-runtime-ubuntu24.04
+```
+
+## Building Container Images
