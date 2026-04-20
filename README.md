@@ -68,6 +68,8 @@ enroot start \
     --env XAUTHORITY=${XAUTH} \
     --env WAYLAND_DISPLAY=/tmp/${WAYLAND_DISPLAY} \
     --env HOME=/home/developer \
+    --env USER=developer \
+    --env LOGNAME=developer \
     u24
 ```
 
@@ -86,6 +88,8 @@ enroot start \
     --env XAUTHORITY=${XAUTH} \
     --env WAYLAND_DISPLAY=/tmp/${WAYLAND_DISPLAY} \
     --env HOME=/home/developer \
+    --env USER=developer \
+    --env LOGNAME=developer \
     u24 zsh
 ```
 
