@@ -52,7 +52,6 @@ enroot remove u24
 ```bash
 enroot start \
     --rw \
-    --mount /tmp/.X11-unix:/tmp/.X11-unix \
     --mount /dev:/dev \
     --mount /mnt:/mnt \
     --mount /media:/media \
@@ -71,7 +70,6 @@ For the zsh users out there!
 ```bash
 enroot start \
     --rw \
-    --mount /tmp/.X11-unix:/tmp/.X11-unix \
     --mount /dev:/dev \
     --mount /mnt:/mnt \
     --mount /media:/media \
