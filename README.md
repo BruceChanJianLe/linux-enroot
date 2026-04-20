@@ -31,6 +31,12 @@ docker login nvcr.io
 enroot import docker://'$oauthtoken':${NGC_API_KEY}@nvcr.io#nvidia/cuda:12.9.0-cudnn-runtime-ubuntu24.04
 ```
 
+Alternatively, you can get it from your local docker daemon!
+
+```bash
+enroot import dockerd://ubuntu24.04:v0.0.5-cnnvros2-runtime
+```
+
 ## Creating Enroot Container Images
 > Maybe the title is not the most accurate, but you based do based off a docker container
 > To create your enroot "image", which then start upon it!
