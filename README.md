@@ -88,3 +88,13 @@ enroot start \
     --env HOME=/home/developer \
     u24 zsh
 ```
+
+## Ghostty User
+
+For all you ghostty users out there, here's what you can do!
+
+```bash
+infocmp -x | ssh username@123.123.123.123 -- tic -x -
+cp -r .terminfo/ /tier1/jianle/enroot/data/u24/home/develper
+```
+
