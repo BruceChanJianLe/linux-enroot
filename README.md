@@ -58,18 +58,16 @@ enroot remove u24
 ```bash
 enroot start \
     --rw \
+    --root \
     --mount /dev:/dev \
     --mount /mnt:/mnt \
     --mount /media:/media \
-    --mount /tier1/jianle/docker_mount:/home/developer/docker_mount \
+    --mount /tier1/jianle/docker_mount:/home/$USER/docker_mount \
     --mount ${XDG_RUNTIME_DIR}/${WAYLAND_DISPLAY}:/tmp/${WAYLAND_DISPLAY} \
     --env DISPLAY=${DISPLAY} \
     --env QT_X11_NO_MITSHM=1 \
     --env XAUTHORITY=${XAUTH} \
     --env WAYLAND_DISPLAY=/tmp/${WAYLAND_DISPLAY} \
-    --env HOME=/home/developer \
-    --env USER=developer \
-    --env LOGNAME=developer \
     u24
 ```
 
@@ -81,15 +79,12 @@ enroot start \
     --mount /dev:/dev \
     --mount /mnt:/mnt \
     --mount /media:/media \
-    --mount /tier1/jianle/docker_mount:/home/developer/docker_mount \
+    --mount /tier1/jianle/docker_mount:/home/$USER/docker_mount \
     --mount ${XDG_RUNTIME_DIR}/${WAYLAND_DISPLAY}:/tmp/${WAYLAND_DISPLAY} \
     --env DISPLAY=${DISPLAY} \
     --env QT_X11_NO_MITSHM=1 \
     --env XAUTHORITY=${XAUTH} \
     --env WAYLAND_DISPLAY=/tmp/${WAYLAND_DISPLAY} \
-    --env HOME=/home/developer \
-    --env USER=developer \
-    --env LOGNAME=developer \
     u24 zsh
 ```
 
