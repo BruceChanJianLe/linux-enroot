@@ -66,6 +66,9 @@ enroot start \
     --env DISPLAY=${DISPLAY} \
     --env QT_X11_NO_MITSHM=1 \
     --env XAUTHORITY=${XAUTH} \
+    --env NVIDIA_VISIBLE_DEVICES=all \
+    --env NVIDIA_DRIVER_CAPABILITIES=all \
+    --env UV_CACHE_DIR=/uv-cache \
     u24
 ```
 
@@ -81,6 +84,9 @@ enroot start \
     --env DISPLAY=${DISPLAY} \
     --env QT_X11_NO_MITSHM=1 \
     --env XAUTHORITY=${XAUTH} \
+    --env NVIDIA_VISIBLE_DEVICES=all \
+    --env NVIDIA_DRIVER_CAPABILITIES=all \
+    --env UV_CACHE_DIR=/uv-cache \
     u24 zsh
 ```
 
