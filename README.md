@@ -68,7 +68,8 @@ enroot start \
     --env XAUTHORITY=${XAUTH} \
     --env NVIDIA_VISIBLE_DEVICES=all \
     --env NVIDIA_DRIVER_CAPABILITIES=all \
-    --env UV_CACHE_DIR=/uv-cache \
+    --env UV_CACHE_DIR=/uv_cache \
+    --mount /tier1/jianle/uv_cache:/uv_cache \
     u24
 ```
 
@@ -86,7 +87,8 @@ enroot start \
     --env XAUTHORITY=${XAUTH} \
     --env NVIDIA_VISIBLE_DEVICES=all \
     --env NVIDIA_DRIVER_CAPABILITIES=all \
-    --env UV_CACHE_DIR=/uv-cache \
+    --env UV_CACHE_DIR=/uv_cache \
+    --mount /tier1/jianle/uv_cache:/uv_cache \
     u24 zsh
 ```
 
