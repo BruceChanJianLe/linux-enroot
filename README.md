@@ -102,6 +102,21 @@ Attach to the container that you like!
 enroot exec 12345 zsh
 ```
 
+## Tips
+
+<details>
+<summary>1. Mount the uv cache on a shared drive</summary>
+
+The `--mount /tier1/jianle/uv_cache:/uv-cache` flag maps a host directory into the container. Placing the uv cache on a shared/network drive has several advantages:
+
+- **Shared across containers**: Multiple containers (from different builds or different users) reuse the same cached wheels and source distributions, avoiding redundant downloads.
+- **Persistent across container restarts**: Enroot containers started with `--rw` persist changes, but if you recreate a container from the squashfs image, the cache would be lost. A mounted cache directory survives container teardown.
+- **Shared across batch jobs**: When running Slurm or other batch jobs that each spin up their own container instance, a shared cache means the first job pays the download cost and all subsequent jobs install from cache. This is especially significant for large dependencies like PyTorch or scipy.
+- **Disk efficiency**: Python package caches can grow to several gigabytes. Keeping a single shared copy avoids duplicating this across every container on the system.
+
+Adjust the host path (`/tier1/jianle/uv_cache`) to match your cluster's shared filesystem (e.g., a tier-1 NFS mount or a Lustre directory accessible from all nodes).
+
+</details>
 
 ## Ghostty User
 
