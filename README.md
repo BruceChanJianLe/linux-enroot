@@ -90,6 +90,19 @@ enroot start \
     u24 zsh
 ```
 
+## Attaching to a Container!
+
+List the pid of the container:  
+```bash
+enroot list -f
+```
+
+Attach to the container that you like!  
+```bash
+enroot exec 12345 zsh
+```
+
+
 ## Ghostty User
 
 For all you ghostty users out there, here's what you can do!
