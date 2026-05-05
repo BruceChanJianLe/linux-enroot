@@ -63,9 +63,6 @@ enroot start \
     --mount /mnt:/mnt \
     --mount /media:/media \
     --mount /tier1/jianle/docker_mount:/home/$USER/docker_mount \
-    --env DISPLAY=${DISPLAY} \
-    --env QT_X11_NO_MITSHM=1 \
-    --env XAUTHORITY=${XAUTH} \
     --env NVIDIA_VISIBLE_DEVICES=all \
     --env NVIDIA_DRIVER_CAPABILITIES=all \
     --env UV_CACHE_DIR=/uv_cache \
@@ -73,7 +70,26 @@ enroot start \
     u24
 ```
 
-For the zsh users out there!
+
+<details>
+<summary>For the zsh users out there!</summary>
+```bash
+enroot start \
+    --rw \
+    --mount /dev:/dev \
+    --mount /mnt:/mnt \
+    --mount /media:/media \
+    --mount /tier1/jianle/docker_mount:/home/$USER/docker_mount \
+    --env NVIDIA_VISIBLE_DEVICES=all \
+    --env NVIDIA_DRIVER_CAPABILITIES=all \
+    --env UV_CACHE_DIR=/uv_cache \
+    --mount /tier1/jianle/uv_cache:/uv_cache \
+    u24 zsh
+```
+</details>
+
+<details>
+<summary>2. Generate Houses</summary>
 
 ```bash
 enroot start \
@@ -82,15 +98,16 @@ enroot start \
     --mount /mnt:/mnt \
     --mount /media:/media \
     --mount /tier1/jianle/docker_mount:/home/$USER/docker_mount \
-    --env DISPLAY=${DISPLAY} \
-    --env QT_X11_NO_MITSHM=1 \
-    --env XAUTHORITY=${XAUTH} \
+    --mount /tier1/nav/mistral_infinigen:/mistral_infinigen \
     --env NVIDIA_VISIBLE_DEVICES=all \
     --env NVIDIA_DRIVER_CAPABILITIES=all \
-    --env UV_CACHE_DIR=/uv_cache \
+    --env UV_CACHE_DIR=/uv-cache \
     --mount /tier1/jianle/uv_cache:/uv_cache \
-    u24 zsh
+    u24 \
+    bash -c "cd /mistral_infinigen/codes && exec zsh"
 ```
+
+</details>
 
 ## Attaching to a Container!
 
