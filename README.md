@@ -73,6 +73,7 @@ enroot start \
 
 <details>
 <summary>For the zsh users out there!</summary>
+
 ```bash
 enroot start \
     --rw \
@@ -89,7 +90,7 @@ enroot start \
 </details>
 
 <details>
-<summary>2. Generate Houses</summary>
+<summary>Generate Houses</summary>
 
 ```bash
 enroot start \
